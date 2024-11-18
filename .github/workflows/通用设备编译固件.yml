@@ -10,16 +10,13 @@ on:
   workflow_dispatch:
     inputs:
       source_branch:
-        description: "Select the source branch"
+        description: "immortalwrt-master"
         required: false
         default: "openwrt-main"
         type: choice
         options:
-          - openwrt-main
-          - lede-master
           - immortalwrt-master
-          - Lienol-master
-      
+                
 env:
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
   CONFIG_FILE: config/${{ inputs.source_branch }}/config
