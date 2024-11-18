@@ -187,10 +187,10 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           body: |
 
-            ### OpenWrt Image information
-            - Default IP: 192.168.1.1
+            ### K2P immortalwrt information
+            - Default IP: 192.168.2.1
             - Default username: root
-            - Default password: password
+            - Default password: none
             - Default WIFI name: OpenWrt
             - Default WIFI password: none
             ### Install to EMMC
