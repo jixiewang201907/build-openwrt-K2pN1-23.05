@@ -1,8 +1,4 @@
 #!/bin/bash
-cd openwrt
-# wireless
-rm -rf files/etc/config/wireless
-rm -rf files/etc/modules.d/wireless_enable
 # geodata
 wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
