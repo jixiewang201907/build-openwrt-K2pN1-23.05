@@ -22,7 +22,6 @@ sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_gener
 
 # ------------------------------- Other started -------------------------------
 
-cd openwrt
 # Add a feed source
 #echo 'src-git SSRplus https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
