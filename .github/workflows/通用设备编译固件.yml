@@ -11,12 +11,12 @@ on:
       source_branch:
         description: "immortalwrt"
         required: false
-        default: "immortalwrt-23.05"
+        default: "immortalwrt-master"
         type: choice
         options:
           - openwrt-main
           - lede-master
-          - immortalwrt-23.05
+          - immortalwrt-master
           - Lienol-master
                 
 env:
