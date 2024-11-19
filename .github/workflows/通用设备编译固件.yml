@@ -1,4 +1,4 @@
-#============================================================================================
+============================================================================================
 # https://github.com/ophub/amlogic-s9xxx-openwrt
 # Description: Build OpenWrt
 #============================================================================================
@@ -188,7 +188,6 @@ jobs:
           keep_minimum_runs: 3
           token: ${{ secrets.GH_TOKEN }}
           body: |
-
             ### K2P immortalwrt information
             - Default IP: 192.168.2.1
             - Default username: root
