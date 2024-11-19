@@ -5,18 +5,20 @@
 
 name: k2p
 
-on:
-  repository_dispatch:
+ispatch:
   workflow_dispatch:
     inputs:
       source_branch:
-        description: "immortalwrt-master"
+        description: "immortalwrt"
         required: false
-        default: "immortalwrt-master"
+        default: "openwrt-main"
         type: choice
         options:
+          - openwrt-main
+          - lede-master
           - immortalwrt-master
-                
+          - Lienol-master
+      
 env:
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
   CONFIG_FILE: config/${{ inputs.source_branch }}/config
