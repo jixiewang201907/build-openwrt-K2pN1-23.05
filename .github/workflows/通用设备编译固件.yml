@@ -12,7 +12,7 @@ on:
         description: "immortalwrt"
         required: false
         default: "openwrt-main"
-        type: choice
+        type: immortalwrt-master
         options:
           - openwrt-main
           - lede-master
