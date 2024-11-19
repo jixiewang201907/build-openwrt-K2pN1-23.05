@@ -12,8 +12,8 @@ on:
       source_branch:
         description: "immortalwrt"
         required: false
-        default: "openwrt-main"
-        type: immortalwrt-master
+        default: "immortalwrt-master"
+        type: choice
         options:
           - openwrt-main
           - lede-master
