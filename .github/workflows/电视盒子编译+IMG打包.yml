@@ -12,7 +12,7 @@ on:
       source_branch:
         description: "immortalwrt-master"
         required: false
-        default: "immortalwrt-master"
+        default: "openrt"
         type: choice
         options:
           - immortalwrt-master
