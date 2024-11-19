@@ -10,12 +10,15 @@ on:
   workflow_dispatch:
     inputs:
       source_branch:
-        description: "immortalwrt-master"
+        description: "immortalwrt"
         required: false
-        default: "openrt"
+        default: "immortalwrt-23.05"
         type: choice
         options:
-          - immortalwrt-master
+          - openwrt-main
+          - lede-master
+          - immortalwrt-23.05
+          - Lienol-master
       openwrt_board:
         description: "N1-s905d"
         required: false
@@ -26,7 +29,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "5.15.1_5.4.x_6.1.1"
+        default: "5.15.1_6.1.1"
         type: choice
         options:
           - 5.15.1_6.1.1
