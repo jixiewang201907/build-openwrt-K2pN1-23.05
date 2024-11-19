@@ -5,14 +5,15 @@
 
 name: k2p
 
-ispatch:
+on:
+  repository_dispatch:
   workflow_dispatch:
     inputs:
       source_branch:
         description: "immortalwrt"
         required: false
         default: "openwrt-main"
-        type: immortalwrt-master
+        type: choice
         options:
           - openwrt-main
           - lede-master
