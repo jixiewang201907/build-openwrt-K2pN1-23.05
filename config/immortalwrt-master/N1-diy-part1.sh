@@ -5,7 +5,7 @@ sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_gener
 
 # Remove packages
 rm -rf feeds/luci/applications/luci-app-passwall
-
+rm -rf feeds/luci/applications/luci-app-passwall2
 # Add packages
 git clone https://github.com/nantayo/My-Pkg package/my-pkg
 git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
