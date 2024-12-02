@@ -10,13 +10,13 @@ rm -rf feeds/luci/applications/luci-app-amlogic
 rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-passwall2
 # Add packages
-#git clone --depth=1 https://github.com/ophub/luci-app-amlogic package/amlogic
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/ophub/luci-app-amlogic.git package/amlogic
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/adguardhome
 # Add luci-app-bypass
-git clone https://github.com/jixiewang201907/by-pass.git package/by-pass
+git clone https://github.com/jixiewang201907/by-pass.git package/bypass
 # Add luci-app-smartdns
-git clone https://github.com/pymumu/openwrt-smartdns.git feeds/packages/net/smartdns
-git clone https://github.com/pymumu/luci-app-smartdns.git feeds/luci/applications/luci-app-smartdns
+git clone https://github.com/pymumu/openwrt-smartdns.git packages/smartdns
+git clone https://github.com/pymumu/luci-app-smartdns.git packages/luci-app-smartdns
 # Add luci-app-passwall
 #git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
-#git clone -b main https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
+git clone https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
