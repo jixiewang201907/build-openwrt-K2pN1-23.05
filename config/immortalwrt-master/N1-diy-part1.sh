@@ -19,3 +19,6 @@ git clone https://github.com/pymumu/luci-app-smartdns.git packages/luci-app-smar
 # Add luci-app-passwall
 #git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
+
+./scripts/feeds update -a
+./scripts/feeds install -a
