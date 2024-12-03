@@ -4,7 +4,7 @@
 sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_generate
 
 # Remove packages
-rm -rf feeds/luci/applications/luci-app-passwall2
+rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-amlogic
@@ -23,7 +23,7 @@ git clone https://github.com/pymumu/openwrt-smartdns.git package/smartdns
 git clone https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 
 # Add luci-app-passwall
-#git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
 
 ./scripts/feeds update -a
