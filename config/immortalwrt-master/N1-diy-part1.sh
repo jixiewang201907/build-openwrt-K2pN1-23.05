@@ -14,8 +14,8 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/adgu
 # Add luci-app-bypass
 git clone https://github.com/jixiewang201907/by-pass.git package/bypass
 # Add luci-app-smartdns
-git clone https://github.com/pymumu/openwrt-smartdns.git packages/smartdns
-git clone https://github.com/pymumu/luci-app-smartdns.git packages/luci-app-smartdns
+git clone https://github.com/pymumu/openwrt-smartdns.git package/smartdns
+git clone https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
 # Add luci-app-passwall
 #git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
