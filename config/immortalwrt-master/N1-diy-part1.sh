@@ -16,8 +16,7 @@ git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/amlogi
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/adguardhome
 
 # Add luci-app-bypass
-#git clone https://github.com/jixiewang201907/by-pass.git package/bypass
-svn co https://github.com/kenzok8/small/trunk/luci-app-bypass package/bypass
+git clone https://github.com/jixiewang201907/by-pass.git package/bypass
 
 # Add luci-app-smartdns
 git clone https://github.com/pymumu/openwrt-smartdns.git package/smartdns
