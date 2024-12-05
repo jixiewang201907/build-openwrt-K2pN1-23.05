@@ -2,7 +2,8 @@
 
 # Default IP
 sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_generate
-## geodata sing-box xray Hysteria
+
+# geodata sing-box xray Hysteria
 wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 wget -q -cP files/usr/bin/sing-box https://github.com/SagerNet/sing-box/releases/download/v1.10.1/sing-box-1.10.1-linux-arm64.tar.gz
