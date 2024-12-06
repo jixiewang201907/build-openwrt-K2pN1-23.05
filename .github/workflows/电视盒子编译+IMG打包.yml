@@ -76,8 +76,8 @@ on:
 env:
   FEEDS_CONF: config/${{ inputs.source_branch }}/feeds.conf.default
   CONFIG_FILE: config/${{ inputs.source_branch }}/N1-config
-  DIY_P1_SH: config/${{ inputs.source_branch }}/N1-diy-part1.sh
-  DIY_P2_SH: config/${{ inputs.source_branch }}/N1-diy-part2.sh
+  SCRIPT_SH: config/${{ inputs.source_branch }}/N1-diy-part1.sh
+  SRC_SH: config/${{ inputs.source_branch }}/N1-diy-part2.sh
   TZ: America/New_York
 
 jobs:
@@ -149,12 +149,15 @@ jobs:
       - name: Load custom feeds
         run: |
           [[ -f "${FEEDS_CONF}" ]] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
-          chmod +x ${DIY_P1_SH}
+          chmod +x ${SCRIPT_SH}
           cd openwrt/
-          ${GITHUB_WORKSPACE}/${DIY_P1_SH}
+          ${GITHUB_WORKSPACE}/${SCRIPT_SH}
 
       - name: Update feeds
-        run: cd openwrt/ && ./scripts/feeds update -a
+        run: |
+          chmod +x ${SRC_SH}
+          ${GITHUB_WORKSPACE}/${SRC_SH}
+          cd openwrt/ && ./scripts/feeds update -a
 
       - name: Install feeds
         run: cd openwrt/ && ./scripts/feeds install -a
@@ -163,10 +166,7 @@ jobs:
         run: |
           [[ -d "files" ]] && mv -f files openwrt/files
           [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
-          chmod +x ${DIY_P2_SH}
-          cd openwrt/
-          ${GITHUB_WORKSPACE}/${DIY_P2_SH}
-
+                    
       - name: Download package
         id: package
         run: |
