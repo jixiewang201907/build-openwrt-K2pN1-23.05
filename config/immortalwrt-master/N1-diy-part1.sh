@@ -9,9 +9,9 @@ wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-da
 
 # Remove packages
 #rm -rf feeds/luci/applications/luci-app-passwall
-rm -rf feeds/packages/net/adguardhome
-rm -rf feeds/packages/net/smartdns
-rm -rf feeds/luci/applications/luci-app-smartdns
+#rm -rf feeds/packages/net/adguardhome
+#rm -rf feeds/packages/net/smartdns
+#rm -rf feeds/luci/applications/luci-app-smartdns
 
 # Add packages
 #git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/amlogic
