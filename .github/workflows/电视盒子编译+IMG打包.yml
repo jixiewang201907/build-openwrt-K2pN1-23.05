@@ -32,8 +32,7 @@ on:
         default: "5.15.x_6.1.x"
         type: choice
         options:
-          - 5.15.x_6.1.x
-          - 5.4.x
+          - 5.15.x_5.4.x_6.1.x
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
