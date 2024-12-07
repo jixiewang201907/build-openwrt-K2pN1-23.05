@@ -3,15 +3,9 @@
 # Default IP
 sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_generate
 
-# geodata sing-box xray Hysteria
+# geodata
 wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
 wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
-
-# Remove packages
-#rm -rf feeds/luci/applications/luci-app-passwall
-#rm -rf feeds/packages/net/adguardhome
-#rm -rf feeds/packages/net/smartdns
-#rm -rf feeds/luci/applications/luci-app-smartdns
 
 # Add packages
 #git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/amlogic
