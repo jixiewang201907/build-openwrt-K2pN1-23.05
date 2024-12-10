@@ -4,8 +4,8 @@
 sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_generate
 
 # geodata
-wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
-wget -q -cP files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+wget -q -cp files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+wget -q -cp files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 
 # Add packages
 #git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/amlogic
