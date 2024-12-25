@@ -9,7 +9,7 @@ wget -q -cp files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-da
 
 # Add packages
 #git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/amlogic
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+#git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 
 # Add luci-app-bypass
 #git clone https://github.com/jixiewang201907/by-pass.git package/by-pass
@@ -23,4 +23,4 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci
 #git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
 
 # dele kenzok8 passwall2
-rm -rf feeds/small/luci-app-passwall2
+#rm -rf feeds/small/luci-app-passwall2
