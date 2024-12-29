@@ -8,18 +8,18 @@ wget -q -cp files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-da
 wget -q -cp files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 
 # add kenzok
-sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-argon-config
-rm -rf feeds/packages/net/{alist,adguardhome,xray*,v2ray*,v2ray*,sing*,smartdns}
-rm -rf feeds/packages/utils/v2dat
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-./scripts/feeds install -a 
+#sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+#sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+#./scripts/feeds update -a && rm -rf feeds/luci/applications/luci-app-argon-config
+#rm -rf feeds/packages/net/{alist,adguardhome,xray*,v2ray*,v2ray*,sing*,smartdns}
+#rm -rf feeds/packages/utils/v2dat
+#rm -rf feeds/packages/lang/golang
+#git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+#./scripts/feeds install -a 
 
 # Add packages
 #git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/amlogic
-#git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 
 # Add luci-app-bypass
 #git clone https://github.com/jixiewang201907/by-pass.git package/by-pass
@@ -32,5 +32,5 @@ git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 #git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 #git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
 
-# dele kenzok8 passwall2
-#rm -rf feeds/small/luci-app-passwall2
+./scripts/feeds update -a
+./scripts/feeds install -a 
