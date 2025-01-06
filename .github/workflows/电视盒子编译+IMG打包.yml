@@ -147,7 +147,7 @@ jobs:
 
       - name: Load custom feeds
         run: |
-          [[ -f "${FEEDS_CONF}" ]] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
+          #[[ -f "${FEEDS_CONF}" ]] && cp -f ${FEEDS_CONF} openwrt/feeds.conf.default
           [ -e files ] && mv files openwrt/files
           chmod +x ${SCRIPT_SH}
           cd openwrt/
@@ -164,7 +164,7 @@ jobs:
 
       - name: Load custom configuration
         run: |
-          #[[ -d "files" ]] && mv -f files openwrt/files
+          [[ -d "files" ]] && mv -f files openwrt/files
           [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
                     
       - name: Download package
