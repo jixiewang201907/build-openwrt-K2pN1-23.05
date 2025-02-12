@@ -19,7 +19,7 @@ git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 # Add packages
 #git clone --depth=1 https://github.com/ophub/luci-app-amlogic.git package/amlogic
-git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+#git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
 
 # Add luci-app-bypass
 #git clone https://github.com/jixiewang201907/by-pass.git package/by-pass
