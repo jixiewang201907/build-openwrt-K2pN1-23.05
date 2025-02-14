@@ -78,93 +78,54 @@ env:
   SCRIPT_SH: config/${{ inputs.source_branch }}/N1-diy-part1.sh
   SRC_SH: config/${{ inputs.source_branch }}/N1-diy-part2.sh
   TZ: America/New_York
-
 jobs:
   build:
     runs-on: ubuntu-22.04
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-    - name: Check machine configuration
+    - name: Show system
       run: |
-        echo "警告⚠"
-        echo "分配的服务器性能有限，若选择的插件过多，务必注意CPU性能！"
-        echo "云编译建议取消勾选Node.js及其相关插件！"
-        echo "已知CPU型号（降序）：7763,8370C,8272CL,8171M,E5系列"
-        echo "--------------------------CPU信息--------------------------"
-        echo "CPU物理数量:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
-        echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
-        echo "--------------------------内存信息--------------------------"
-        echo "已安装内存详细信息："
-        sudo lshw -short -C memory | grep GiB
-        echo -e "\n"
-        echo "--------------------------硬盘信息--------------------------"
-        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
-        echo "硬盘详情："
-        df -Th
-        
-    - name: Before freeing up disk space
-      run: |
-        echo "Before freeing up disk space"
-        echo "=============================================================================="
-        df -hT
-        echo "=============================================================================="
+        echo -e "💬 Server information \n"
+        echo -e "💻 Server running on Ubuntu: [ Release: $(cat /etc/os-release | grep VERSION_CODENAME | cut -d '=' -f2) / Host: $(arch) ] \n"
+        echo -e "🧮 Server CPU configuration information: \n$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo -e "💾 Server memory usage: \n$(free -h) \n"
+        echo -e "🗃️ Server space usag: \n$(df -hT ${GITHUB_WORKSPACE}) \n"
 
-    - name: "Optimize Disk Space"
-      uses: "hugoalh/disk-space-optimizer-ghaction@v0.8.1"
-      with:
-        operate_sudo: "True"
-        general_include: ".+"
-        general_exclude: |-
-          ^GCC$
-          ^G\+\+$
-          Clang
-          LLVM
-        docker_include: ".+"
-        docker_prune: "True"
-        docker_clean: "True"
-        apt_prune: "True"
-        apt_clean: "True"
-        homebrew_prune: "True"
-        homebrew_clean: "True"
-        npm_prune: "True"
-        npm_clean: "True"
-        os_swap: "True"
-
-    - name: Freeing up disk space
+    - name: Maximize build space
       uses: easimon/maximize-build-space@master
-      with: 
-        root-reserve-mb: 10240
-        swap-size-mb: 1
+      with:
+        swap-size-mb: 1024
+        temp-reserve-mb: 512
+        root-reserve-mb: 4608
         remove-dotnet: 'true'
         remove-android: 'true'
         remove-haskell: 'true'
         remove-codeql: 'true'
-        remove-docker-images: 'true'
 
-    - name: Free up disk space complete
-      run: |
-        echo "Free up disk space complete"
-        echo "=============================================================================="
-        df -hT
-        echo "=============================================================================="
-        
     - name: Checkout
-      uses: actions/checkout@main
-      
-    - name: Initialize environment
+      uses: actions/checkout@v4
+
+    - name: Init build dependencies
       env:
         DEBIAN_FRONTEND: noninteractive
-      run: | 
-        sudo -E apt-get -qq update -y
-        sudo -E apt-get -qq install -y $(curl -fsSL https://raw.githubusercontent.com/nantayo/My-Pkg/master/2305)
+      run: |
+        docker rmi $(docker images -q) 2>/dev/null
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq install dwarves quilt llvm clang-13 lldb lld build-essential rsync asciidoc binutils bzip2 gawk gettext git libncurses5-dev \
+          patch python2.7 unzip zlib1g-dev lib32gcc-s1 libc6-dev-i386 subversion flex uglifyjs gcc-multilib p7zip-full msmtp libssl-dev texinfo libreadline-dev \
+          libglib2.0-dev xmlto qemu-utils upx-ucl libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget ccache curl \
+          swig coreutils vim nano python3 python3-dev python3-pip python3-ply python3-pyelftools lrzsz scons
+        pip3 install --user -U pylibfdt
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
-        sudo timedatectl set-timezone "$TZ"
-        sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
-    
+        sudo -E git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
+        sudo -E git config --global core.abbrev auto
+        df -h
+   
     - name: Clone source code [ ${{ inputs.source_branch }} ]
       id: codes
-      working-directory: /workdir
+      working-directory: ${{ github.workspace }}/openwrt
       if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
       run: |
         # Set up compilation source code
