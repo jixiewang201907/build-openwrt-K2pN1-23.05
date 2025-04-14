@@ -12,12 +12,12 @@ on:
       source_branch:
         description: "immortalwrt"
         required: false
-        default: "immortalwrt-24.10"
+        default: "immortalwrt-master"
         type: choice
         options:
           - openwrt-main
           - lede-master
-          - immortalwrt-master
+          - immortalwrt-24.10
           - Lienol-master
       openwrt_board:
         description: "N1-s905d"
