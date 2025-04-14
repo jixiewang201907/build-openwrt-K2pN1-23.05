@@ -17,7 +17,7 @@ on:
         options:
           - openwrt-main
           - lede-master
-          - immortalwrt-24.10
+          - immortalwrt-master
           - Lienol-master
       openwrt_board:
         description: "N1-s905d"
