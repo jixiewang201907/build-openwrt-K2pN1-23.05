@@ -239,7 +239,7 @@ jobs:
         kernel_repo: ${{ inputs.kernel_repo }}
         kernel_usage: ${{ inputs.kernel_usage }}
         builder_name: ${{ inputs.builder_name }}
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        #GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     - name: Upload the packaged OpenWrt
       uses: ncipollo/release-action@main
