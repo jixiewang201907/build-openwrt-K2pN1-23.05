@@ -2,7 +2,7 @@
 
 # Default IP
 sed -i 's/192.168.1.1/192.168.2.200/g' package/base-files/files/bin/config_generate
-# clear password
+# clear login password
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' package/emortal/default-settings/files/99-default-settings
 # geodata
 wget -q -cp files/usr/share/v2ray https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
