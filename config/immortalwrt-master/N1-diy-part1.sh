@@ -35,5 +35,9 @@ git clone https://github.com/pymumu/luci-app-smartdns.git feeds/luci/application
 #git clone -b main https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 #git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
 
+# Add luci-app-adguardhome
+git clone https://github.com/AdguardTeam/AdGuardHome.git feeds/packages/net/AdGuardHome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/luci-app-adguardhome
+
 ./scripts/feeds update -a
 ./scripts/feeds install -a 
